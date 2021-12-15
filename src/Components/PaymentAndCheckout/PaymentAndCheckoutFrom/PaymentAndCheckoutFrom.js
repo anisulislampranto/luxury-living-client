@@ -38,7 +38,7 @@ const PaymentAndCheckoutFrom = () => {
         formData.append('email', email);
         formData.append('serviceName', serviceName);
         formData.append('servicePrice', serviceInfo.price);
-        formData.append('icon', serviceInfo?.image); 
+        formData.append('image', serviceInfo?.image); 
         formData.append('date', new Date());
 
             fetch('https://still-brook-35546.herokuapp.com/addBooking', {
