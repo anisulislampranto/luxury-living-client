@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Navigation from '../../Shared/Navigation/Navigation';
 import OrderList from '../OrderList/OrderList';
 import Sidebar from '../Sidebar/Sidebar';
 
@@ -16,13 +17,14 @@ const OrderLists = () => {
 
     return (
         <div>
+            <Navigation/>
             <div className="col-md-2 sidebar">
                 <Sidebar/>
             </div>
             <div className="col-md-10 container-fluid" style={{position:'absolute', right: 0}}>
 
             <table className="container">
-                    <thead style={{boxShadow: '2px 4px 4px gray', padding:'10px', borderRadius:'5px'}}>
+                    <thead style={{boxShadow: '1px 2px 2px gray', padding:'10px', paddingLeft:'10px', borderRadius:'5px'}}>
                         <tr>
                             <td>Name</td>
                             <td>Email</td>

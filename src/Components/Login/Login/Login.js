@@ -4,6 +4,10 @@ import { GoogleAuthProvider,signInWithPopup,getAuth } from "firebase/auth";
 import firebaseConfig from './Firebase/Firebase.config';
 import { UserContext } from '../../../App';
 import { useHistory, useLocation } from 'react-router';
+import logo from '../../../images/logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import './Login.css'
 
 
 const Login = () => {
@@ -41,9 +45,12 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <h5> Welcome {loggedInUser.name}</h5>
-            <button onClick={handleGoogleSignIn}> Google Sign In </button>
+        <div className='text-center' style={{marginTop: '15%'}}>
+            <img width='100px' height='40px' src={logo} alt="" />
+            <div className='my-5'>
+                <h4>Log In With</h4>
+                <button className='logIn-btn' onClick={handleGoogleSignIn}> <FontAwesomeIcon icon={faGoogle} /> Continue with Google </button>
+            </div>
         </div>
     );
 };

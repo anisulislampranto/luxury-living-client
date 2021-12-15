@@ -5,10 +5,10 @@ const Contact = () => {
     
   return (
       
-      <div className='text-center container' >
+      <div className='text-center col-sm-12 col-12 container' >
         <p>Contact</p>
         <h2>Let us handle your project, professionally.</h2>
-      <form className="mx-5 px-5 my-4 py-5 text-center">
+      <form className="px-5 py-5 text-center">
         <div class="form-row">
           <div class="form-group">
             <div class="form-row d-flex">
@@ -34,14 +34,14 @@ const Contact = () => {
                 <input
                   type="text"
                   class="form-control"
-                  placeholder=" Enter Your Email"
+                  placeholder="Email Address"
                 />
               </div>
               <div class="col mx-3">
                 <input
                   type="number"
                   class="form-control"
-                  placeholder=" Enter Your Number"
+                  placeholder="Phone Number"
                 />
               </div>
             </div>

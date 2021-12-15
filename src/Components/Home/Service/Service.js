@@ -6,7 +6,7 @@ const Service = (props) => {
     const {title, description, image, _id, price} = props.service;
     
     return (
-        <div className="col-md-4 service-card">  
+        <div className="col-md-4 col-sm-12 col-12 service-card">  
             <Link to={'/book/'+_id} className='text-decoration-none service'>
                 <img className="img-fluid mb-3 service-image" src={`data:image/png;base64,${image}`} alt="" />
                 <h5>{title}</h5>

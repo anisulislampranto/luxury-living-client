@@ -3,6 +3,7 @@ import { CardElement,useStripe,useElements} from '@stripe/react-stripe-js';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import { useParams } from 'react-router';
 import { UserContext } from '../../../App';
+import Navigation from '../../Shared/Navigation/Navigation';
 
 const PaymentAndCheckoutFrom = () => {
     const {serviceId} = useParams();
@@ -20,17 +21,24 @@ const PaymentAndCheckoutFrom = () => {
     const stripe = useStripe();
     const elements = useElements();
 
+    useEffect(()=>{
+        fetch('http://localhost:4040/service/'+ serviceId )
+        .then(res =>res.json())
+        .then(data => setServiceInfo(data[0]))
+    },[serviceId])
+
+    console.log(serviceInfo);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
 
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
         formData.append('serviceName', serviceName);
         formData.append('servicePrice', serviceInfo.price);
-        // formData.append('icon', serviceInfo.image); 
+        formData.append('icon', serviceInfo?.image); 
         formData.append('date', new Date());
 
             fetch('http://localhost:4040/addBooking', {
@@ -71,21 +79,16 @@ const PaymentAndCheckoutFrom = () => {
             setPaymentSuccess(paymentMethod)
             setPaymentError('')
         }
-
+        console.log(serviceInfo.image);
          
     }
 
-    useEffect(()=>{
-        fetch('http://localhost:4040/service/'+ serviceId )
-        .then(res =>res.json())
-        .then(data => setServiceInfo(data[0]))
-    },[serviceId])
-
-    console.log(serviceInfo);
-    
+        
     return (
 
+        <div>
 
+        <Navigation/>
         <div className='contianer-fluid row'>
             <div className="col-md-2 sidebar">
               <Sidebar />
@@ -124,6 +127,7 @@ const PaymentAndCheckoutFrom = () => {
 
             </div>
 
+        </div>
         </div>
 
         

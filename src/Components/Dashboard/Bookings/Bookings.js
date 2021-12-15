@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Navigation from '../../Shared/Navigation/Navigation';
 import Booking from '../Booking/Booking';
 import Sidebar from '../Sidebar/Sidebar';
 
@@ -15,6 +16,8 @@ const Bookings = () => {
     
 
     return (
+        <div>
+        <Navigation/>
         <div className='container-fluid row'>
             <div className='col-md-2 sidebar'>
                 <Sidebar/>
@@ -25,6 +28,7 @@ const Bookings = () => {
                         bookings.map(booking => <Booking booking={booking}></Booking>)
                     }
             </div>
+        </div>
         </div>
     );
 };

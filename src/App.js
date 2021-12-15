@@ -24,7 +24,7 @@ function App() {
     email: "",
     photo: "",
   });
-  document.title="Luxury Apartment";
+  document.title="Luxury Living";
 
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
@@ -81,6 +81,10 @@ function App() {
           <PrivateRoute exact path="/orderlist">
             <OrderLists />
           </PrivateRoute>
+
+          <Route path="*">
+              <Home/>
+          </Route>
 
         </Switch>
       </Router>

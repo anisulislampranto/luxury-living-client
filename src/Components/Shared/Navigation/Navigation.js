@@ -18,7 +18,7 @@ const Navigation = () => {
 
 
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg col-sm-12 navbar-light bg-light">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,9 @@ const Navigation = () => {
                 </ul>
                 {
                 loggedInUser.isSignedIn ? <img src={loggedInUser.photo} style={{width:'35px', height: '35px', borderRadius: '5px'}} alt="" /> : 
-                <button class="btn btn-primary">Login</button>
+                <Link to='/login'>
+                     <button class="btn btn-primary"  >Login</button>
+                </Link>
 
                 }
 

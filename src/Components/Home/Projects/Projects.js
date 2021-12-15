@@ -12,7 +12,7 @@ const Projects = () => {
     
     return (
         <div className='text-center'>
-            <p> {projects.length} Projects</p>
+            <p>Projects</p>
             <h2>Discover the latest Interior Design available today</h2>
             <div className='container-fluid row'>
                 {

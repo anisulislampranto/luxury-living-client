@@ -12,7 +12,7 @@ const Services = () => {
 
     return (
         <div className='text-center'>
-            <p> {services.length} Services</p>
+            <p>Services</p>
             <h2>We're an agency tailored to all clients' needs that always delivers</h2>
             <div className="container-fluid row">
                 {
