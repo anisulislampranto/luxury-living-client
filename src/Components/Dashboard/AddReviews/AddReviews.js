@@ -13,7 +13,7 @@ const AddReviews = () => {
         formData.append('name', name);
         formData.append('review', review);
 
-        fetch('http://localhost:4040/addReview', {
+        fetch('https://still-brook-35546.herokuapp.com/addReview', {
             method: 'POST',
             body: formData
         }).then(res => res.json())

@@ -16,7 +16,7 @@ const OrderList = (props) => {
         formData.append('id', _id)
 
 
-        fetch('http://localhost:4040/addConfirmedOrder', {
+        fetch('https://still-brook-35546.herokuapp.com/addConfirmedOrder', {
             method: 'POST', 
             body: formData
         }).then( res => res.json())
@@ -24,7 +24,7 @@ const OrderList = (props) => {
             if (data) {
                 alert('Successfully Added to confirmed Order List')
 
-                fetch('http://localhost:4040/deleteConfirmedOrder/'+ _id,{
+                fetch('https://still-brook-35546.herokuapp.com/deleteConfirmedOrder/'+ _id,{
                     method:'DELETE',
                 })
                 .then(res => res.json())
@@ -36,7 +36,7 @@ const OrderList = (props) => {
             }
         })
     }
-    
+
     const handleCompleteOrder = (e) => {
         e.preventDefault();
 
@@ -49,7 +49,7 @@ const OrderList = (props) => {
         formData2.append('id', _id)
 
 
-        fetch('http://localhost:4040/addCompletedOrder', {
+        fetch('https://still-brook-35546.herokuapp.com/addCompletedOrder', {
             method: 'POST', 
             body: formData2
         }).then( res => res.json())
@@ -57,7 +57,7 @@ const OrderList = (props) => {
             if (data) {
                 alert('Successfully Added to Completed Order List')
 
-                fetch('http://localhost:4040/deleteCompletedOrder/' + _id,{
+                fetch('https://still-brook-35546.herokuapp.com/deleteCompletedOrder/' + _id,{
                     method:'DELETE',
                 })
                 .then(res => res.json())

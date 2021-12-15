@@ -18,7 +18,7 @@ const AddProjects = () => {
         formData.append('location', location)
         formData.append('image', image); 
 
-        fetch('http://localhost:4040/addProject', {
+        fetch('https://still-brook-35546.herokuapp.com/addProject', {
             method: 'POST',
             body: formData
         })

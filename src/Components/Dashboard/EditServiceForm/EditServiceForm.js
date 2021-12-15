@@ -37,7 +37,7 @@ const EditService = ({closeModal,modalIsOpen, selectedServiceId}) => {
         formData.append('price', price)
         formData.append('image', image); 
 
-        fetch('http://localhost:4040/updateService/' + selectedServiceId , {
+        fetch('https://still-brook-35546.herokuapp.com/updateService/' + selectedServiceId , {
             method: 'PATCH',
             body: formData
         })

@@ -7,7 +7,7 @@ const CompletedOrderLists = () => {
     const [completedOrders, setCompletedOrders] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:4040/completedOrders')
+        fetch('https://still-brook-35546.herokuapp.com/completedOrders')
         .then(res => res.json())
         .then(data => setCompletedOrders(data))
     },[])

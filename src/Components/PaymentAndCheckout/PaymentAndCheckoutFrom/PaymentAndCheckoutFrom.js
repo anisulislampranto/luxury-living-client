@@ -22,7 +22,7 @@ const PaymentAndCheckoutFrom = () => {
     const elements = useElements();
 
     useEffect(()=>{
-        fetch('http://localhost:4040/service/'+ serviceId )
+        fetch('https://still-brook-35546.herokuapp.com/service/'+ serviceId )
         .then(res =>res.json())
         .then(data => setServiceInfo(data[0]))
     },[serviceId])
@@ -41,7 +41,7 @@ const PaymentAndCheckoutFrom = () => {
         formData.append('icon', serviceInfo?.image); 
         formData.append('date', new Date());
 
-            fetch('http://localhost:4040/addBooking', {
+            fetch('https://still-brook-35546.herokuapp.com/addBooking', {
             method: 'POST',
             body: formData
             }).then(res => res.json())

@@ -17,7 +17,7 @@ const ManageService = ({service}) => {
       }
 
     const handelDelete = (_id)=> {
-        fetch('http://localhost:4040/deleteService/' + _id, {
+        fetch('https://still-brook-35546.herokuapp.com/deleteService/' + _id, {
             method:'DELETE',
         })
         .then(res=> res.json())

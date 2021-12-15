@@ -7,7 +7,7 @@ const ConfirmedOrderLists = () => {
     const [confirmedOrders, setConfirmedOrders] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:4040/confirmedOrders')
+        fetch('https://still-brook-35546.herokuapp.com/confirmedOrders')
         .then(res => res.json())
         .then(data => setConfirmedOrders(data))
       },[])

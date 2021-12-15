@@ -21,7 +21,7 @@ const AddService = () => {
         formData.append('price', price)
         formData.append('icon', icon); 
 
-        fetch('http://localhost:4040/addServices', {
+        fetch('https://still-brook-35546.herokuapp.com/addServices', {
             method: 'POST',
             body: formData
         })
