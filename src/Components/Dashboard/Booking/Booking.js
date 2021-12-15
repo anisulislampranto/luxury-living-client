@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../App";
-import Navigation from "../../Shared/Navigation/Navigation";
 
 const Booking = (props) => {
   const {name, _id, email, serviceName, servicePrice, image} = props.booking;
@@ -8,11 +7,6 @@ const Booking = (props) => {
   const [confirmedOrders, setConfirmedOrders] = useState([]);
   const [completedOrders, setCompletedOrders] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:4040/booking/" + _id)
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data[0]));
-  // }, [_id]);
 
   useEffect(()=>{
     fetch('http://localhost:4040/confirmedOrders')
@@ -26,16 +20,6 @@ const Booking = (props) => {
     .then(data => setCompletedOrders(data[0]))
   },[])
 
-  let orderStatus = () => {
-    if (_id === confirmedOrders.id) {
-      return <button>Cconfirmed</button>
-    } else if (_id === completedOrders.id) {
-      return <button>Done</button>
-    } else {
-      return <button>Pending</button>
-    }
-  }
-
   console.log(confirmedOrders);
   console.log(completedOrders);
 
@@ -43,7 +27,7 @@ const Booking = (props) => {
     <>
       {loggedInUser.email === email && (
         <div className="col-md-4 service-card">
-          <img src={image} width="230px" height="120px" style={{borderRadius:'10px', marginBottom: '30px'}} alt="" />
+          <img src={`data:image/png;base64,${image}`} width="230px" height="120px" style={{borderRadius:'10px', marginBottom: '30px'}} alt="" />
           <p><strong>Booked Service: </strong>{serviceName}</p>
           <p><strong>Service Price:</strong> ${servicePrice}</p>
           <p><strong>Booking Author Name: </strong> <br /> {name}</p> 
@@ -51,7 +35,13 @@ const Booking = (props) => {
           <div className="d-flex">
             <p className="my-2" ><strong>Order Status:</strong></p>
             {
-              orderStatus
+              _id === confirmedOrders?.id && <button className="btn btn-warning">Order Confirmed</button> 
+            }
+            {
+               _id === completedOrders?.id && <button className="btn btn-success">Done</button>  
+            }
+            {
+              _id !== confirmedOrders?.id && _id !== completedOrders?.id && <button className="btn btn-primary">Pending</button>
             }
             
           </div>

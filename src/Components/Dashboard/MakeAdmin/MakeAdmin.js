@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navigation from '../../Shared/Navigation/Navigation';
 import Sidebar from '../Sidebar/Sidebar';
 
 const MakeAdmin = () => {
@@ -15,18 +16,19 @@ const MakeAdmin = () => {
         fetch('http://localhost:4040/addAdmin', {
             method: 'POST',
             body: formData
-        }).then(res => res.json())
+        })
+        .then(res => res.json())
         .then(data => {
                 if (data) {
                     console.log('admin Added')
                     alert('Admin Added Successfully')
                 }
-        })
-
+             })
     }
 
     return (
         <div>
+            <Navigation/>
             <div className="container-fluid row">
                 <div className='col-md-2 sidebar'>
                     <Sidebar/>

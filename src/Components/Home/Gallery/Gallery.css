@@ -1,20 +1,12 @@
-.service{
-    color: black;
+.slide-img{
+    height: 500px;
+    border-radius: 10px;
 }
-.service:hover{
-    color: green;
-
-}
-.service-image{
-    height: 80px;
-    width: 80px;
-}
-.service-image:hover{
+.slide-img:hover{
     box-shadow: gray 4px 8px 8px 8px;
     cursor: pointer;
     animation: shake 0.5s;
     animation-iteration-count: infinite;
-    border-radius: 5px;
 }
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }

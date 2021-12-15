@@ -2,6 +2,7 @@ import React from 'react';
 
 const OrderList = (props) => {
     const {_id ,name, email, serviceName, servicePrice, date} = props.order;
+    console.log(_id);
 
     const handleConfirmOrder = (e) => {
         e.preventDefault();
@@ -22,10 +23,20 @@ const OrderList = (props) => {
         .then(data => {
             if (data) {
                 alert('Successfully Added to confirmed Order List')
+
+                fetch('http://localhost:4040/deleteConfirmedOrder/'+ _id,{
+                    method:'DELETE',
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data) {
+                        alert('OrderInfo Moved to Confirmed Order List')
+                    }
+                })
             }
         })
-        console.log(formData);
     }
+    
     const handleCompleteOrder = (e) => {
         e.preventDefault();
 
@@ -45,9 +56,18 @@ const OrderList = (props) => {
         .then(data => {
             if (data) {
                 alert('Successfully Added to Completed Order List')
+
+                fetch('http://localhost:4040/deleteCompletedOrder/' + _id,{
+                    method:'DELETE',
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data) {
+                        alert('OrderInfo Moved to Completed Order List')
+                    }
+                })
             }
         })
-        console.log('formData2',  formData2);
 
     }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navigation from '../../Shared/Navigation/Navigation';
 import OrderList from '../OrderList/OrderList';
 import Sidebar from '../Sidebar/Sidebar';
@@ -12,8 +13,6 @@ const OrderLists = () => {
         .then(data => setOrders(data))
 
     },[])
-
-    console.log(orders);
 
     return (
         <div>
@@ -35,12 +34,18 @@ const OrderLists = () => {
                         </tr>
                     </thead>
                     {
-                         orders?.map(order => <OrderList order={order} /> )
+                         orders?.map(order => <OrderList order={order}  key={order._id}/> )
                     }
                 </table>
-
-                
-
+                    
+                    <div className="my-4 gap-2">
+                        <Link to='/orderlist/confirmedorders'>
+                            <button className="btn btn-warning">Confirmed Orders List</button>
+                        </Link>
+                        <Link to='orderlist/completedorders' className="mx-2">
+                            <button className="btn btn-success">Completed Orders List</button> 
+                        </Link>
+                    </div>
             </div>
         </div>
     );

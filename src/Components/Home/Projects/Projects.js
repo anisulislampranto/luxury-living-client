@@ -11,12 +11,12 @@ const Projects = () => {
     },[])
     
     return (
-        <div className='text-center'>
+        <div className='text-center my-4'>
             <p>Projects</p>
             <h2>Discover the latest Interior Design available today</h2>
             <div className='container-fluid row'>
                 {
-                    projects.map(project=> <Project project={project}></Project>)
+                    projects.map(project=> <Project project={project} key={project._id}></Project>)
                 }
             </div>
         </div>

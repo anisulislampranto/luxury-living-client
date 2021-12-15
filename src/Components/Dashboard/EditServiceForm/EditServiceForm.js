@@ -41,18 +41,16 @@ const EditService = ({closeModal,modalIsOpen, selectedServiceId}) => {
             method: 'PATCH',
             body: formData
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data) {
-                    setSuccess('Service Updated successfully')
-                    console.log('Service Updated successfully')
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-
-
+        .then(res => res.json())
+        .then(data => {
+            if (data) {
+                setSuccess('Service Updated successfully')
+                console.log('Service Updated successfully')
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
   }    
   
   return (

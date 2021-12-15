@@ -11,11 +11,11 @@ const Reviews = () => {
     },[])
 
     return (
-        <div className='text-center'>
+        <div className='text-center my-4'>
             <h2> Testimonials</h2>
             <div className="container-fluid row">
                 {
-                    reviews.map(review => <Review review={review} ></Review>)
+                    reviews.map(review => <Review review={review} key={review._id} ></Review>)
                 }
             </div>
         </div>

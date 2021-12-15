@@ -93,41 +93,39 @@ const PaymentAndCheckoutFrom = () => {
             <div className="col-md-2 sidebar">
               <Sidebar />
             </div>
-
             <div className="col-md-10" style={{position: 'absolute', right:0}}>
 
-                <h1>Book Service {loggedInUser.name}</h1>
-                <form onSubmit={handleSubmit} className="w-50">
+                    <h1>Book Service with payment and Checkout</h1>
+                    <form onSubmit={handleSubmit} className="w-50">
                     
-                    <div className="form-group">
-                        <label for="exampleInputName1"> Name </label>
-                        <input onBlur={e => setName(e.target.value)} type="text" name="name" defaultValue={loggedInUser.name} className="form-control"  placeholder="Enter Your Name" />
-                    </div>
-                    <div className="form-group">
-                        <label for="exampleInputEmail1"> Email</label>
-                        <input onBlur={e => setEmail(e.target.value)} type="text" name="email" defaultValue={loggedInUser.email} className="form-control"  placeholder="Enter Your Email" />
-                    </div>
+                        <div className="form-group">
+                            <label for="exampleInputName1"> Name </label>
+                            <input onBlur={e => setName(e.target.value)} type="text" name="name" defaultValue={loggedInUser.name} className="form-control"  placeholder="Enter Your Name" />
+                        </div>
+                        <div className="form-group">
+                            <label for="exampleInputEmail1"> Email</label>
+                            <input onBlur={e => setEmail(e.target.value)} type="text" name="email" defaultValue={loggedInUser.email} className="form-control"  placeholder="Enter Your Email" />
+                        </div>
 
-                    <div className="form-group">
-                        <label for="exampleInputEmail1"> Service title </label>
-                        <input onBlur={e => setServiceName(e.target.value)} type="text" name="serviceName" defaultValue={serviceInfo?.title} className="form-control"  placeholder="Enter Service Title" />
-                    </div>
+                        <div className="form-group">
+                            <label for="exampleInputEmail1"> Service title </label>
+                            <input onBlur={e => setServiceName(e.target.value)} type="text" name="serviceName" defaultValue={serviceInfo?.title} className="form-control"  placeholder="Enter Service Title" />
+                        </div>
                     
-                    <br />
-                    {/* <button type="submit" class="btn btn-primary my-3">Submit</button> */}
-                    <CardElement />
-                    <br />
-                    <p>Selected Service Charge ${serviceInfo?.price}</p>
-                    <button className="mt-5 btn btn-primary" type="submit" disabled={!stripe}> Pay & Checkout </button>
+                        <br />
+                        {/* <button type="submit" class="btn btn-primary my-3">Submit</button> */}
+                        <CardElement />
+                        <br />
+                        <p>Selected Service Charge ${serviceInfo?.price}</p>
+                        <button className="mt-5 btn btn-primary" type="submit" disabled={!stripe}> Pay & Checkout </button>
 
-                </form>
-                {success && <p style={{ color: 'green' }}>{success}</p>}              
-                {paymentError && <p className='text-danger'>{paymentError}</p>}
-                {paymentSuccess && <p className='text-primary '>payment success</p>}
+                    </form>
+                    {success && <p style={{ color: 'green' }}>{success}</p>}              
+                    {paymentError && <p className='text-danger'>{paymentError}</p>}
+                    {paymentSuccess && <p className='text-primary '>payment success</p>}
 
+                </div>
             </div>
-
-        </div>
         </div>
 
         

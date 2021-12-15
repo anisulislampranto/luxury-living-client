@@ -14,6 +14,8 @@ import Bookings from "./Components/Dashboard/Bookings/Bookings";
 import OrderLists from "./Components/Dashboard/OrderLists/OrderLists";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import ConfirmedOrderLists from "./Components/Dashboard/ConfirmedOrderLists/ConfirmedOrderLists";
+import CompletedOrderLists from "./Components/Dashboard/CompletedOrderLists/CompletedOrderLists";
 
 export const UserContext = createContext();
 
@@ -80,6 +82,14 @@ function App() {
 
           <PrivateRoute exact path="/orderlist">
             <OrderLists />
+          </PrivateRoute>
+          
+          <PrivateRoute exact path="/orderlist/confirmedorders">
+            <ConfirmedOrderLists />
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/orderlist/completedorders">
+            <CompletedOrderLists />
           </PrivateRoute>
 
           <Route path="*">

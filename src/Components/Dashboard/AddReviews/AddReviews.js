@@ -5,7 +5,6 @@ import Sidebar from '../Sidebar/Sidebar';
 const AddReviews = () => {
     const [name, setName] = useState('');
     const [review, setReview] = useState('');
-    // const []
     const [success, setSuccess] = useState(false);
 
     const handleSubmit = (e) => {
@@ -28,7 +27,6 @@ const AddReviews = () => {
     }
 
 
-
     return (
         <div>
             <Navigation/>
@@ -48,11 +46,7 @@ const AddReviews = () => {
                             <label for="exampleInputEmail1">Feedback</label>
                             <textarea onBlur={e => setReview(e.target.value)} type="text" name="review" className="form-control" id="exampleFormControlTextarea1"  placeholder="Enter Your Feedback here" rows="6" />
                         </div>
-                        {/* <div className="form-group">
-                            <label for="exampleFormControlFile1">Upload A Image</label>
-                            <input onChange={e => setImage(e.target.files[0])} type="file" className="form-control" placeholder="Picture" />
-                        </div>
-                         */}
+                
                         <button type="submit" class="btn btn-primary my-3">Submit</button>
                     </form>
                     {success && <p style={{ color: 'green' }}>{success}</p>}

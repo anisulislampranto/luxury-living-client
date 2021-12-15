@@ -11,8 +11,6 @@ const Bookings = () => {
         .then(res => res.json())
         .then(data => setBookings(data))
     },[])
-
-    console.log(bookings);
     
 
     return (
@@ -23,10 +21,10 @@ const Bookings = () => {
                 <Sidebar/>
             </div>
             <div className='col-md-10 row' style={{position: 'absolute', right:0}}>
-                    <h1>Bookings</h1>
-                    {
-                        bookings.map(booking => <Booking booking={booking}></Booking>)
-                    }
+                <h1>Bookings</h1>
+                {
+                    bookings.map(booking => <Booking booking={booking} key={booking._id}></Booking>)
+                }
             </div>
         </div>
         </div>

@@ -5,8 +5,7 @@ import {Link} from 'react-router-dom';
 import { UserContext } from "../../../App";
 
 const Navigation = () => {
-
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
     const [adminEmail, setAdminEmail] = useState([]);
 
     useEffect(()=> {
@@ -48,16 +47,21 @@ const Navigation = () => {
                          </li> 
                     }
 
-                    
-                    
                 </ul>
                 {
-                loggedInUser.isSignedIn ? <img src={loggedInUser.photo} style={{width:'35px', height: '35px', borderRadius: '5px'}} alt="" /> : 
+                loggedInUser.isSignedIn ?  
+                // <img src={loggedInUser.photo} style={{width:'35px', height: '35px', borderRadius: '5px'}} alt="" /> 
+                <div className="d-flex gap-4">
+                    <p className="my-auto"><strong>{loggedInUser.name}</strong></p>
+                    <img src={loggedInUser.photo} style={{width:'35px', height: '35px', borderRadius: '5px'}} alt="" /> 
+                </div>
+                : 
                 <Link to='/login'>
-                     <button class="btn btn-primary"  >Login</button>
+                     <button class="btn btn-primary" >Login</button>
                 </Link>
-
                 }
+
+                
 
             </div>
         </div>
