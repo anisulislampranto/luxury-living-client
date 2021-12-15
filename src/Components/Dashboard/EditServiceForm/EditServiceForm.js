@@ -21,21 +21,21 @@ const EditService = ({closeModal,modalIsOpen, selectedServiceId}) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState(0);
-    const [icon, setIcon] = useState(null);
+    const [image, setImage] = useState(null);
     const [success, setSuccess] = useState(false);
 
   const handleSubmit = (e)=>{
     e.preventDefault();
     console.log('clicked')
     e.preventDefault();
-        if (!icon) {
+        if (!image) {
             return;
         }
         const formData = new FormData();
         formData.append('title', title);
         formData.append('description', description)
         formData.append('price', price)
-        formData.append('icon', icon); 
+        formData.append('image', image); 
 
         fetch('http://localhost:4040/updateService/' + selectedServiceId , {
             method: 'PATCH',
@@ -78,7 +78,7 @@ const EditService = ({closeModal,modalIsOpen, selectedServiceId}) => {
               </div>
               <div className="form-group">
                   <label for="exampleFormControlFile1">Upload Service Icon</label>
-                  <input onChange={e => setIcon(e.target.files[0])} type="file" className="form-control" placeholder="Service Icon" />
+                  <input onChange={e => setImage(e.target.files[0])} type="file" className="form-control" placeholder="Service Image" />
               </div>
 
               {success && <p style={{ color: 'green' }}>{success}</p>} <br />
