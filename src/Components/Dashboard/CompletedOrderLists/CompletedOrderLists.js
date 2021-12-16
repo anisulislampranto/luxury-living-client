@@ -4,7 +4,7 @@ import CompletedOrder from '../CompletedOrder/CompletedOrder';
 import Sidebar from '../Sidebar/Sidebar';
 
 const CompletedOrderLists = () => {
-    const [completedOrders, setCompletedOrders] = useState([])
+    const [completedOrders, setCompletedOrders] = useState([]);
 
     useEffect(()=>{
         fetch('https://still-brook-35546.herokuapp.com/completedOrders')
