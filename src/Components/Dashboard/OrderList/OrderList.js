@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ConfirmedOrder from '../ConfirmedOrder/ConfirmedOrder';
 
 const OrderList = (props) => {
     const {_id ,name, email, serviceName, servicePrice, date} = props.order;
-    console.log(_id);
+    const [comfirmedOrder, setConfirmedOrder] = useState({});
+    const [completedOrder, setCompletedOrder] = useState({}); 
 
     const handleConfirmOrder = (e) => {
         e.preventDefault();
@@ -22,19 +24,28 @@ const OrderList = (props) => {
         }).then( res => res.json())
         .then(data => {
             if (data) {
-                alert('Successfully Added to confirmed Order List')
-
-                fetch('https://still-brook-35546.herokuapp.com/deleteConfirmedOrder/'+ _id,{
-                    method:'DELETE',
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if (data) {
-                        alert('OrderInfo Moved to Confirmed Order List')
-                    }
-                })
+                alert('Successfully Added to confirmed Order List');
+                setConfirmedOrder(data);
             }
         })
+    }
+
+
+    const orderStatus = () => {
+
+        if (comfirmedOrder) {
+         return     <button type="button" class="border-0 dropdown-toggle bg-transparent text-dark" data-bs-toggle="dropdown" aria-expanded="false">
+                        Confirmed
+                    </button>
+        }else if (completedOrder) {
+            return  <button type="button" class="border-0 dropdown-toggle bg-transparent text-dark" data-bs-toggle="dropdown" aria-expanded="false">
+                        completed
+                    </button>  
+        } else {
+          return    <button type="button" class="border-0 dropdown-toggle bg-transparent text-dark" data-bs-toggle="dropdown" aria-expanded="false">
+                        Pending
+                    </button>
+        }
     }
 
     const handleCompleteOrder = (e) => {
@@ -55,17 +66,8 @@ const OrderList = (props) => {
         }).then( res => res.json())
         .then(data => {
             if (data) {
-                alert('Successfully Added to Completed Order List')
-
-                fetch('https://still-brook-35546.herokuapp.com/deleteCompletedOrder/' + _id,{
-                    method:'DELETE',
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if (data) {
-                        alert('OrderInfo Moved to Completed Order List')
-                    }
-                })
+                alert('Successfully Added to Completed Order List');
+                setCompletedOrder(data);
             }
         })
 
@@ -82,9 +84,10 @@ const OrderList = (props) => {
                 <td>{date}</td>
                 <td>
                     <div class="btn-group">
-                        <button type="button" class="border-0 dropdown-toggle bg-transparent text-dark" data-bs-toggle="dropdown" aria-expanded="false">
-                            Action
-                        </button>
+                        {
+                            orderStatus
+                        }
+                        
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#" onClick={handleConfirmOrder}>Confirm Order</a></li>
                             <li><a class="dropdown-item" href="#" onClick={handleCompleteOrder}>Complete Order</a></li>

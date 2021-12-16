@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import EditServiceForm from '../EditServiceForm/EditServiceForm';
-import './ManageService.css'
+import './ManageService.css';
 
 const ManageService = ({service}) => {
     const {_id, title, description, price, image} = service;
