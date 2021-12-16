@@ -41,11 +41,7 @@ const OrderList = (props) => {
             return  <button type="button" class="border-0 dropdown-toggle bg-transparent text-dark" data-bs-toggle="dropdown" aria-expanded="false">
                         completed
                     </button>  
-        } else {
-          return    <button type="button" class="border-0 dropdown-toggle bg-transparent text-dark" data-bs-toggle="dropdown" aria-expanded="false">
-                        Pending
-                    </button>
-        }
+        } 
     }
 
     const handleCompleteOrder = (e) => {
@@ -85,7 +81,9 @@ const OrderList = (props) => {
                 <td>
                     <div class="btn-group">
                         {
-                            orderStatus
+                            orderStatus || <button type="button" class="border-0 dropdown-toggle bg-transparent text-dark" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Pending
+                                            </button>
                         }
                         
                         <ul class="dropdown-menu">
