@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import ConfirmedOrder from '../ConfirmedOrder/ConfirmedOrder';
 
 const OrderList = (props) => {
     const {_id ,name, email, serviceName, servicePrice, date} = props.order;
     const [comfirmedOrder, setConfirmedOrder] = useState({});
     const [completedOrder, setCompletedOrder] = useState({}); 
+
+    console.log(comfirmedOrder);
 
     const handleConfirmOrder = (e) => {
         e.preventDefault();
@@ -28,20 +29,6 @@ const OrderList = (props) => {
                 setConfirmedOrder(data);
             }
         })
-    }
-
-
-    const orderStatus = () => {
-
-        if (comfirmedOrder) {
-         return     <button type="button" class="border-0 dropdown-toggle bg-transparent text-dark" data-bs-toggle="dropdown" aria-expanded="false">
-                        Confirmed
-                    </button>
-        }else if (completedOrder) {
-            return  <button type="button" class="border-0 dropdown-toggle bg-transparent text-dark" data-bs-toggle="dropdown" aria-expanded="false">
-                        completed
-                    </button>  
-        } 
     }
 
     const handleCompleteOrder = (e) => {
@@ -80,11 +67,18 @@ const OrderList = (props) => {
                 <td>{date}</td>
                 <td>
                     <div class="btn-group">
-                        {
-                            orderStatus || <button type="button" class="border-0 dropdown-toggle bg-transparent text-dark" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Pending
-                                            </button>
-                        }
+                        
+                        <button type="button" class="border-0 dropdown-toggle bg-transparent text-dark" data-bs-toggle="dropdown" aria-expanded="false">
+                    
+                            {
+                                comfirmedOrder.insertedId && <strong>Confirmed</strong>  
+                            }
+                            {
+                                completedOrder.insertedId && <strong>Completed</strong>
+                            }
+                            
+                        </button>
+                        
                         
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#" onClick={handleConfirmOrder}>Confirm Order</a></li>
