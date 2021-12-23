@@ -1,4 +1,4 @@
-# Luxury living a service based web site
+# Luxury living - a service based web site
 ## live link: https://luxury-living-33253.web.app
 
 ## server repo Link: https://github.com/anisulislampranto/luxury-living-server
