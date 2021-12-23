@@ -9,6 +9,7 @@
 #### dynamic card elements, 
 #### stripe payment system(test),
 #### bootstrap 5 slider/carousel image.
+#### Responsive Home Page
 
 ## FeaturesBackend:
 #### dynacmic Rest api intregetion,
